@@ -24,7 +24,7 @@ class UniqueGmailAddressRule implements Rule
             return true;
         }
 
-        return ! DB::table($this->table)->where($this->column, 'RLIKE', $validator->getRegex())->exists();
+        return ! DB::table($this->table)->where($this->column, 'REGEXP', $validator->getRegex())->exists();
     }
 
     public function message()
